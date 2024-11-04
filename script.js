@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:5000/api';
+const API_URL = 'https://anuvaad-live-1.onrender.com';
 let selectedFile = null;
 
 // Initialize elements
