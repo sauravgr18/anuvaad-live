@@ -56,16 +56,16 @@ translateBtn.addEventListener('click', async () => {
         showProgress();
         translateBtn.disabled = true;
 
-        // Make API request
+        // Make API request to translate the video
         const response = await axios.post(`${API_URL}/translate-video`, formData, {
-            responseType: 'blob',
+            responseType: 'blob',  // Expecting a binary response
             onUploadProgress: (progressEvent) => {
                 const percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total);
                 updateProgress(percentCompleted);
             }
         });
 
-        // Create download link
+        // Create download link for the translated video
         const url = window.URL.createObjectURL(new Blob([response.data]));
         const link = document.createElement('a');
         link.href = url;
@@ -74,7 +74,7 @@ translateBtn.addEventListener('click', async () => {
         link.click();
         link.remove();
 
-        // Reset form
+        // Reset form after download
         resetForm();
     } catch (error) {
         showError('Translation failed. Please try again.');
