@@ -25,6 +25,7 @@ async function fetchLanguages() {
         });
     } catch (error) {
         showError('Failed to load supported languages');
+        console.error(error);
     }
 }
 
