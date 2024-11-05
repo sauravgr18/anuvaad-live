@@ -15,7 +15,8 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 app = Flask(__name__)
-CORS(app)  # Enable CORS for all routes
+CORS(app, origins="https://sauravgr18.github.io/anuvaad-live/")  # Replace with your actual GitHub Pages URL
+ # Enable CORS for all routes
 
 # Configure application
 app.template_folder = 'templates'
